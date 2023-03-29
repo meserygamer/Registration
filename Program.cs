@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //Registration.RegA();
             Console.WriteLine("Введите логин:");
             string login = Console.ReadLine();
             Console.WriteLine("Введите пароль:");
@@ -98,7 +99,7 @@
         public static void RegA()
         {
             Person = new Auth_data(Roles.Admin, NextID());
-            BinaryWriter BW = new BinaryWriter(File.Open("Authdata.txt", FileMode.OpenOrCreate));
+            BinaryWriter BW = new BinaryWriter(File.Open("Authdata.txt", FileMode.OpenOrCreate), System.Text.Encoding.UTF8);
             BW.Seek(0, SeekOrigin.End);
             BW.Write(Person.Id);
             BW.Write(Person.Familiya);
@@ -112,7 +113,7 @@
         public static void RegSU()
         {
             Person = new Auth_data(Roles.SimpleUser, NextID());
-            BinaryWriter BW = new BinaryWriter(File.Open("Authdata.txt", FileMode.OpenOrCreate));
+            BinaryWriter BW = new BinaryWriter(File.Open("Authdata.txt", FileMode.OpenOrCreate), System.Text.Encoding.UTF8);
             BW.Seek(0, SeekOrigin.End);
             BW.Write(Person.Id);
             BW.Write(Person.Familiya);
